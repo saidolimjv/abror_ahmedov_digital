@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oxirgi qadam — Digital Ekspert</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+
+<main class="thanks">
+  <div class="thanks__card">
+    <div class="thanks__check" aria-hidden="true">&#10003;</div>
+
+    <h1 class="thanks__title" id="t-title">Oxirgi qadam qoldi!</h1>
+
+    <p class="thanks__text" id="t-text"></p>
+
+    <div class="thanks__arrows" aria-hidden="true">↓ ↓ ↓ ↓ ↓</div>
+
+    <a class="btn btn--blue" id="t-btn" href="#" target="_blank" rel="noopener"></a>
+
+    <p class="thanks__note" id="t-note"></p>
+  </div>
+</main>
+
+<script>
+const THANKS = {
+  telegramUrl: "https://t.me/abror_ahmedov1_bot",
+  title:       "Oxirgi qadam qoldi!",
+  text:        "Digital Ekspert kursi haqida barcha yangiliklarni kuzatib borish uchun quyidagi tugmani bosib Telegramga o'ting.",
+  button:      "Telegramga o'tish",
+  note:        "Telegramga o'tganingizdan so'ng kurs haqida birinchi bo'lib xabar olasiz."
+};
+
+const el = id => document.getElementById(id);
+
+// Ismni eslab qolib, shaxsiy murojaat qilamiz
+let name = "";
+try { name = sessionStorage.getItem("leadName") || ""; } catch (e) {}
+
+el("t-title").textContent = name ? name + ", oxirgi qadam qoldi!" : THANKS.title;
+el("t-text").textContent  = THANKS.text;
+el("t-note").textContent  = THANKS.note;
+
+const btn = el("t-btn");
+btn.textContent = THANKS.button;
+btn.href = THANKS.telegramUrl;
+</script>
+
+</body>
+</html>

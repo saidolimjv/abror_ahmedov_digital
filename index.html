@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Ekspert — Abror Ahmedov</title>
+<meta name="description" content="Abror Ahmedov metodikasi bilan noldan SMM mutaxassisi bo'ling va birinchi mijozingizga chiqing. Kursga hoziroq bepul ro'yxatdan o'ting va eng arzon narxdan foydalaning.">
+<meta property="og:title" content="Digital Ekspert — Abror Ahmedov">
+<meta property="og:description" content="Noldan SMM mutaxassisi bo'ling va birinchi mijozingizga chiqing. Bepul ro'yxatdan o'ting.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/img/hero.png">
+<link rel="icon" href="/assets/img/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <a class="ig-badge" href="https://instagram.com/sincerelyabror" target="_blank" rel="noopener">
+    <img src="/assets/img/avatar.jpg" alt="Abror Ahmedov" class="ig-badge__img">
+    <span class="ig-badge__name" data-cfg="instagram">@sincerelyabror</span>
+  </a>
+
+  <h1 class="hero__title" data-cfg="heroTitle"></h1>
+  <p class="hero__subtitle" data-cfg="heroSubtitle"></p>
+
+  <div class="hero__photo">
+    <img src="/assets/img/hero.png" alt="Abror Ahmedov — digital ekspert" loading="eager">
+  </div>
+
+  <div class="cta-block" data-cta="green"></div>
+</section>
+
+<!-- ============ 2. NIMA OLASIZ ============ -->
+<section class="section">
+  <h2 class="section__title" data-cfg="benefitsTitle"></h2>
+  <div class="benefits" id="benefits"></div>
+  <div class="cta-block" data-cta="green"></div>
+</section>
+
+<!-- ============ 3. NATIJALAR ============ -->
+<section class="section" id="results-section">
+  <h2 class="section__title" data-cfg="resultsTitle"></h2>
+  <div class="results" id="results"></div>
+  <div class="cta-block" data-cta="red"></div>
+</section>
+
+<!-- ============ 4. EKSPERT ============ -->
+<section class="section">
+  <h2 class="bio__name" data-cfg="expertName"></h2>
+  <ul class="bio__list" id="credentials"></ul>
+  <div class="bio__photo">
+    <img src="/assets/img/bio.png" alt="Abror Ahmedov" loading="lazy">
+  </div>
+</section>
+
+<!-- ============ 5. MEHMON EKSPERTLAR ============ -->
+<section class="section" id="guests-section" hidden>
+  <h2 class="section__title" data-cfg="guestsTitle"></h2>
+  <div class="guests" id="guests"></div>
+  <div class="cta-block" data-cta="green" data-notimer="1"></div>
+</section>
+
+<!-- ============ 6. FOOTER ============ -->
+<footer class="footer">
+  <p class="footer__name" data-cfg="expertName"></p>
+  <p class="footer__phones" id="footer-phones"></p>
+  <p class="footer__legal" id="footer-legal"></p>
+  <p class="footer__disclaimer">
+    This site is not part of or endorsed by Facebook, Google, or any social media platform.
+    Facebook is a trademark of Meta Platforms, Inc.<br>
+    Barcha huquqlar himoyalangan, <span id="year"></span>.
+  </p>
+</footer>
+
+<!-- ============ MODAL FORMA ============ -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal__overlay" data-close></div>
+  <div class="modal__sheet" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal__close" type="button" data-close aria-label="Yopish">&#10005;</button>
+    <h2 class="modal__title" id="modal-title" data-cfg="formTitle"></h2>
+
+    <div class="field">
+      <label class="field__label" for="lead-name">Ismingiz</label>
+      <input class="field__input" id="lead-name" type="text" placeholder="Ismingiz" autocomplete="given-name" maxlength="60">
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="lead-phone">Telefon raqamingiz</label>
+      <div class="phone">
+        <span class="phone__code">🇺🇿 +998</span>
+        <input class="field__input phone__input" id="lead-phone" type="tel" inputmode="numeric"
+               placeholder="XX XXX-XX-XX" autocomplete="tel-national" maxlength="13">
+      </div>
+    </div>
+
+    <p class="field__error" id="lead-error" hidden></p>
+
+    <button class="btn btn--red modal__submit" id="lead-submit" type="button" data-cfg="formButton"></button>
+  </div>
+</div>
+
+<script src="/assets/js/script.js"></script>
+</body>
+</html>

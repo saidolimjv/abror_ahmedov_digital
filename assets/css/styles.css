@@ -1,0 +1,310 @@
+/* ============================================================
+   DIGITAL EKSPERT — lead landing
+   Ranglar bitta joyda. O'zgartirmoqchi bo'lsangiz shu yerdan.
+   ============================================================ */
+:root{
+  --bg:            #F2F5EE;   /* umumiy oq-yashil fon */
+  --bg-hero:       #EDF3E7;   /* hero foni (biroz yashilroq) */
+  --card:          #FFFFFF;   /* oq kartalar */
+  --ink:           #17331F;   /* to'q yashil — sarlavhalar */
+  --ink-body:      #2E3B33;   /* asosiy matn */
+  --ink-mute:      #6E7B72;   /* kulrang matn */
+  --green:         #4E8F58;   /* asosiy yashil */
+  --green-dark:    #3B7345;   /* gradient pastki */
+  --green-deep:    #43804D;   /* to'q yashil karta (bonus) */
+  --red:           #C9453D;   /* qizil CTA */
+  --red-dark:      #B03A33;
+  --blue:          #4C8FE0;   /* telegram tugma */
+  --blue-dark:     #3C7BC7;
+  --line:          #E2E8DD;
+  --radius:        20px;
+  --radius-pill:   999px;
+  --shadow:        0 4px 18px rgba(23,51,31,.07);
+  --wrap:          520px;     /* kontent kengligi (mobile-first) */
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink-body);
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:17px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit}
+
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+
+/* ---------- layout ---------- */
+.section,.hero,.footer{
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding:44px 20px;
+}
+.hero{
+  background:var(--bg-hero);
+  max-width:none;
+  padding-top:26px;
+}
+.hero > *{max-width:var(--wrap);margin-inline:auto}
+
+/* ---------- typography ---------- */
+.hero__title,.section__title{
+  font-family:'Anton',Impact,sans-serif;
+  font-weight:400;
+  color:var(--ink);
+  text-transform:uppercase;
+  letter-spacing:.005em;
+  line-height:1.06;
+  text-align:center;
+  margin:0;
+}
+.hero__title{
+  font-size:clamp(30px,8.2vw,42px);
+  text-transform:none;   /* hero — savol shaklida, katta harf emas */
+  letter-spacing:-.01em;
+}
+.section__title{font-size:clamp(26px,6.8vw,34px);margin-bottom:26px}
+.section__title em{font-style:normal;color:var(--green)}
+
+.hero__subtitle{
+  text-align:center;
+  color:var(--ink-mute);
+  font-size:17px;
+  margin:14px auto 0;
+  max-width:24em;
+}
+
+/* ---------- instagram badge ---------- */
+.ig-badge{
+  display:flex;align-items:center;gap:12px;
+  width:max-content;margin:0 auto 22px;
+  background:var(--card);
+  border-radius:var(--radius-pill);
+  padding:7px 22px 7px 7px;
+  text-decoration:none;
+  box-shadow:var(--shadow);
+}
+.ig-badge__img{
+  width:44px;height:44px;border-radius:50%;object-fit:cover;
+  background:#DDE6D8;
+  box-shadow:0 0 0 2px #fff,0 0 0 4px #C9438E;
+}
+.ig-badge__name{font-weight:600;color:var(--ink);font-size:17px}
+
+/* ---------- hero photo ---------- */
+.hero__photo{margin-top:22px}
+.hero__photo img{margin-inline:auto;max-height:60vh;object-fit:contain}
+
+/* ---------- CTA bloki ---------- */
+.cta-block{margin-top:30px;text-align:center}
+.btn{
+  display:block;width:100%;
+  border:0;cursor:pointer;
+  border-radius:var(--radius-pill);
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+  font-weight:700;font-size:19px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  padding:21px 20px;
+  transition:transform .12s ease,filter .12s ease;
+}
+.btn:active{transform:scale(.985)}
+.btn--green{
+  background:linear-gradient(180deg,var(--green) 0%,var(--green-dark) 100%);
+  box-shadow:0 8px 22px rgba(78,143,88,.28);
+}
+.btn--red{
+  background:linear-gradient(180deg,var(--red) 0%,var(--red-dark) 100%);
+  box-shadow:0 8px 22px rgba(201,69,61,.26);
+}
+.btn--blue{
+  background:linear-gradient(180deg,var(--blue) 0%,var(--blue-dark) 100%);
+  box-shadow:0 8px 24px rgba(76,143,224,.32);
+}
+.btn:hover{filter:brightness(1.04)}
+
+.timer{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:16px;
+  font-family:'Anton',Impact,sans-serif;
+  font-size:32px;letter-spacing:.02em;
+  color:var(--red);
+  font-variant-numeric:tabular-nums;
+}
+.timer.is-done{color:var(--ink-mute)}
+.cta-note{margin:6px 0 0;color:var(--ink-mute);font-size:15px}
+
+/* ---------- benefits ---------- */
+.benefits{display:grid;gap:18px}
+.benefit{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:30px 24px;
+  text-align:center;
+}
+.benefit__icon{font-size:44px;line-height:1;margin-bottom:14px}
+.benefit__text{margin:0;font-weight:500;color:var(--ink);font-size:18px}
+.benefit--bonus{background:var(--green-deep);box-shadow:0 6px 22px rgba(67,128,77,.28)}
+.benefit--bonus .benefit__text{color:#fff}
+
+/* ---------- natijalar ---------- */
+.results{
+  columns:2;
+  column-gap:16px;
+}
+.result{
+  break-inside:avoid;
+  margin-bottom:16px;
+  background:var(--card);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.result img{width:100%}
+.result__caption{
+  margin:0;padding:12px 10px;
+  text-align:center;font-weight:500;color:var(--ink);font-size:16px;
+}
+
+/* ---------- bio ---------- */
+.bio__name{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:900;
+  font-size:clamp(34px,10vw,50px);
+  color:var(--ink);
+  text-align:center;
+  margin:0 0 22px;
+  line-height:1.05;
+}
+.bio__list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.bio__list li{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px 18px;
+  display:flex;gap:14px;align-items:flex-start;
+  font-size:17px;color:var(--ink-body);
+}
+.bio__list .ico{font-size:22px;line-height:1.2;flex:0 0 auto}
+.bio__photo{
+  margin-top:26px;
+  background:#E4EEDC;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.bio__photo img{width:100%}
+
+/* ---------- mehmon ekspertlar ---------- */
+.guests{display:grid;gap:12px}
+.guest{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px 16px;
+  display:flex;gap:14px;align-items:center;
+}
+.guest img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:#E4EEDC}
+.guest__name{margin:0;font-weight:600;color:var(--ink);font-size:17px}
+.guest__role{margin:2px 0 0;color:var(--ink-mute);font-size:15px;line-height:1.35}
+
+/* ---------- footer ---------- */
+.footer{border-top:1px solid var(--line);text-align:center}
+.footer__name{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:700;font-size:24px;color:var(--ink);margin:0 0 14px;
+}
+.footer__phones{margin:0 0 16px;font-weight:700;font-size:27px;letter-spacing:.01em}
+.footer__phones a{text-decoration:none;color:var(--ink)}
+.footer__legal{margin:0 0 10px;color:var(--ink-mute);font-size:14px}
+.footer__disclaimer{margin:0;color:var(--ink-mute);font-size:13px;line-height:1.5}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;z-index:80;display:none}
+.modal.is-open{display:block}
+.modal__overlay{position:absolute;inset:0;background:rgba(10,20,14,.55)}
+.modal__sheet{
+  position:absolute;inset:auto 0 0 0;
+  max-height:92vh;overflow-y:auto;
+  background:#fff;
+  border-radius:22px 22px 0 0;
+  padding:52px 22px 34px;
+  max-width:var(--wrap);margin-inline:auto;
+  animation:sheet-up .22s ease-out;
+}
+@keyframes sheet-up{from{transform:translateY(18px);opacity:.6}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.modal__sheet{animation:none}}
+.modal__close{
+  position:absolute;top:12px;right:12px;
+  width:40px;height:40px;border:0;border-radius:50%;
+  background:transparent;color:var(--ink);font-size:22px;cursor:pointer;
+}
+.modal__title{
+  font-size:26px;font-weight:700;color:#101a13;
+  text-align:center;margin:0 0 26px;line-height:1.25;
+}
+.modal__submit{margin-top:24px}
+
+.field{margin-bottom:16px}
+.field__label{display:block;margin-bottom:7px;font-size:16px;color:var(--ink-body)}
+.field__input{
+  width:100%;
+  border:1px solid #D9DFD6;
+  border-radius:14px;
+  padding:16px 18px;
+  font-size:18px;color:var(--ink);
+  background:#fff;
+}
+.field__input::placeholder{color:#A8B2AB}
+.field__input:focus{border-color:var(--green);outline:none;box-shadow:0 0 0 3px rgba(78,143,88,.16)}
+.field__input.is-invalid{border-color:var(--red);box-shadow:0 0 0 3px rgba(201,69,61,.14)}
+.field__error{margin:0;color:var(--red);font-size:15px}
+
+.phone{display:flex;align-items:stretch;border:1px solid #D9DFD6;border-radius:14px;overflow:hidden}
+.phone:focus-within{border-color:var(--green);box-shadow:0 0 0 3px rgba(78,143,88,.16)}
+.phone__code{
+  display:flex;align-items:center;gap:6px;
+  padding:0 16px;background:#fff;border-right:1px solid #D9DFD6;
+  font-size:18px;font-weight:600;color:var(--ink);white-space:nowrap;
+}
+.phone__input{border:0;border-radius:0;flex:1;min-width:0}
+.phone__input:focus{box-shadow:none}
+
+/* ---------- rahmat sahifasi ---------- */
+.thanks{
+  min-height:100dvh;display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.thanks__card{
+  background:#fff;border-radius:26px;box-shadow:0 10px 40px rgba(23,51,31,.10);
+  padding:40px 26px;max-width:var(--wrap);width:100%;text-align:center;
+}
+.thanks__check{
+  width:96px;height:96px;border-radius:50%;margin:0 auto 22px;
+  background:linear-gradient(180deg,#5F9E68 0%,#43804D 100%);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:46px;line-height:1;
+}
+.thanks__title{
+  font-family:'Anton',Impact,sans-serif;font-weight:400;
+  font-size:clamp(28px,7.5vw,36px);color:var(--ink);
+  text-transform:uppercase;margin:0 0 16px;
+}
+.thanks__text{margin:0 auto 26px;color:var(--ink-body);max-width:26em}
+.thanks__arrows{font-size:30px;letter-spacing:.28em;color:var(--green);margin-bottom:18px}
+.thanks__note{margin:18px auto 0;color:var(--ink-mute);font-size:15px;max-width:32em}
+
+/* ---------- desktop ---------- */
+@media (min-width:760px){
+  body{font-size:18px}
+  .section,.hero,.footer{padding:60px 24px}
+  .hero__photo img{max-height:none}
+}
