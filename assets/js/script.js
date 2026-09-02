@@ -8,8 +8,8 @@ const CONFIG = {
   /* ---- HERO ---- */
   instagram:    "@sincerelyabror",
 
-  heroTitle:    "Qanday qilib tajribasiz turib SMM orqali daromadga chiqish mumkin?",
-  heroSubtitle: "Nihoyat kursdan kursga yugurmasdan, aniq tizim bilan birinchi mijozingizni topasiz",
+  heroTitle:    "3 oyda yangi kasb o'rganib, oyiga $1000+ topish mumkinmi?",
+  heroSubtitle: "SMM'ni 0 dan o'rganib, ilk mijozlarni topish va barqaror daromadga chiqishning aniq yo'lini bilib oling",
 
   /* ---- CTA tugmalar ---- */
   ctaGreen:     "Bepul sovg'ani olish",
@@ -28,14 +28,17 @@ const CONFIG = {
     { icon: "🎁✨", text: "Hech qayerda berilmagan sirli bonuslar (sizga yoqishi aniq)", bonus: true }
   ],
 
-  /* ---- 3-bo'lim: natijalar ----
-     Rasmlarni /assets/img/ ichiga tashlang va nomini shu yerga yozing.
-     Bo'sh qoldirsangiz — bo'lim avtomatik yashiriladi.            */
+  /* ---- 3-bo'lim: natijalar (testimonial skrinshotlar, gorizontal scroll) ---- */
   resultsTitle: "O'quvchilar <em>natijasi</em>",
   results: [
-    // { img: "/assets/img/result-1.jpg", caption: "Birinchi mijoz — 1 500 000 so'm 🔥" },
-    // { img: "/assets/img/result-2.jpg", caption: "Oyiga 8 mln so'm 🔥" },
-    // { img: "/assets/img/result-3.jpg", caption: "3 ta doimiy mijoz 🔥" }
+    { img: "/assets/img/testimonial-1.jpg" },
+    { img: "/assets/img/testimonial-2.jpg" },
+    { img: "/assets/img/testimonial-3.jpg" },
+    { img: "/assets/img/testimonial-4.jpg" },
+    { img: "/assets/img/testimonial-5.jpg" },
+    { img: "/assets/img/testimonial-6.jpg" },
+    { img: "/assets/img/testimonial-7.jpg" },
+    { img: "/assets/img/testimonial-8.jpg" }
   ],
 
   /* ---- 4-bo'lim: ekspert ---- */
@@ -47,10 +50,13 @@ const CONFIG = {
     { icon: "📈", text: "500 dan ortiq o'quvchining daromadga chiqishiga yordam bergan" }
   ],
 
-  /* ---- 5-bo'lim: mehmon ekspertlar (ixtiyoriy) ---- */
+  /* ---- 5-bo'lim: mehmon ekspertlar ---- */
   guestsTitle: "Kursda <em>mehmon ekspertlar</em> ishtirok etadi",
   guests: [
-    // { img: "/assets/img/guest-1.jpg", name: "Ism Familiya", role: "Targetolog" }
+    { img: "/assets/img/guest-1.jpg", name: "Komron Yuldoshev", role: "Bozordagi eng top prodyuserlardan biri" },
+    { img: "/assets/img/guest-2.jpg", name: "Doniyor Abdug'aniyev", role: "1000ga yaqin shogird chiqargan mobilograf va shaxsiy brend mutaxassisi" },
+    { img: "/assets/img/guest-3.jpg", name: "Isroil Abdullayev", role: "Sun'iy intellekt bo'yicha bozordagi eng top mutaxassislardan biri va mln$ lik AI startap asoschisi" },
+    { img: "/assets/img/guest-4.jpg", name: "Islomxo'ja Madaminov", role: "O'zbekistondagi eng kuchli xotira egalaridan biri" }
   ],
 
   /* ---- Forma ---- */
@@ -140,10 +146,9 @@ $("#benefits").innerHTML = CONFIG.benefits.map(b => `
 
 if (CONFIG.results.length) {
   $("#results").innerHTML = CONFIG.results.map(r => `
-    <figure class="result">
-      <img src="${r.img}" alt="${r.caption || "O'quvchi natijasi"}" loading="lazy">
-      ${r.caption ? `<figcaption class="result__caption">${r.caption}</figcaption>` : ""}
-    </figure>`).join("");
+    <div class="result">
+      <img src="${r.img}" alt="O'quvchi fikri" loading="lazy">
+    </div>`).join("");
 } else {
   $("#results-section").hidden = true;
 }

@@ -38,7 +38,7 @@ img{max-width:100%;display:block}
 a{color:inherit}
 button{font-family:inherit}
 
-:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:6px}
 
 /* ---------- layout ---------- */
 .section,.hero,.footer{
@@ -62,7 +62,7 @@ button{font-family:inherit}
   letter-spacing:.005em;
   line-height:1.06;
   text-align:center;
-  margin:0;
+  margin:0 auto;
 }
 .hero__title{
   font-size:clamp(30px,8.2vw,42px);
@@ -70,7 +70,7 @@ button{font-family:inherit}
   letter-spacing:-.01em;
 }
 .section__title{font-size:clamp(26px,6.8vw,34px);margin-bottom:26px}
-.section__title em{font-style:normal;color:var(--green)}
+.section__title em{font-style:normal;color:var(--red)}
 
 .hero__subtitle{
   text-align:center;
@@ -98,8 +98,9 @@ button{font-family:inherit}
 .ig-badge__name{font-weight:600;color:var(--ink);font-size:17px}
 
 /* ---------- hero photo ---------- */
-.hero__photo{margin-top:22px}
-.hero__photo img{margin-inline:auto;max-height:60vh;object-fit:contain}
+.hero__photo{margin-top:14px}
+.hero__photo img{margin-inline:auto;max-height:42vh;max-width:78%;object-fit:contain}
+.hero__photo + .cta-block{margin-top:0}
 
 /* ---------- CTA bloki ---------- */
 .cta-block{margin-top:30px;text-align:center}
@@ -118,8 +119,8 @@ button{font-family:inherit}
 }
 .btn:active{transform:scale(.985)}
 .btn--green{
-  background:linear-gradient(180deg,var(--green) 0%,var(--green-dark) 100%);
-  box-shadow:0 8px 22px rgba(78,143,88,.28);
+  background:linear-gradient(180deg,var(--red) 0%,var(--red-dark) 100%);
+  box-shadow:0 8px 22px rgba(201,69,61,.26);
 }
 .btn--red{
   background:linear-gradient(180deg,var(--red) 0%,var(--red-dark) 100%);
@@ -156,23 +157,34 @@ button{font-family:inherit}
 .benefit--bonus{background:var(--green-deep);box-shadow:0 6px 22px rgba(67,128,77,.28)}
 .benefit--bonus .benefit__text{color:#fff}
 
-/* ---------- natijalar ---------- */
+/* ---------- natijalar: gorizontal scroll carousel ---------- */
 .results{
-  columns:2;
-  column-gap:16px;
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-padding-inline:20px;
+  padding:4px 20px 14px;
+  margin:0 -20px;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
 }
+.results::-webkit-scrollbar{display:none}
 .result{
-  break-inside:avoid;
-  margin-bottom:16px;
+  flex:0 0 auto;
+  width:78%;
+  max-width:320px;
+  scroll-snap-align:center;
   background:var(--card);
   border-radius:16px;
   box-shadow:var(--shadow);
   overflow:hidden;
 }
-.result img{width:100%}
-.result__caption{
-  margin:0;padding:12px 10px;
-  text-align:center;font-weight:500;color:var(--ink);font-size:16px;
+.result img{width:100%;display:block}
+
+@media (min-width:560px){
+  .results{margin:0}
+  .result{width:280px}
 }
 
 /* ---------- bio ---------- */
@@ -264,12 +276,12 @@ button{font-family:inherit}
   background:#fff;
 }
 .field__input::placeholder{color:#A8B2AB}
-.field__input:focus{border-color:var(--green);outline:none;box-shadow:0 0 0 3px rgba(78,143,88,.16)}
+.field__input:focus{border-color:var(--red);outline:none;box-shadow:0 0 0 3px rgba(201,69,61,.16)}
 .field__input.is-invalid{border-color:var(--red);box-shadow:0 0 0 3px rgba(201,69,61,.14)}
 .field__error{margin:0;color:var(--red);font-size:15px}
 
 .phone{display:flex;align-items:stretch;border:1px solid #D9DFD6;border-radius:14px;overflow:hidden}
-.phone:focus-within{border-color:var(--green);box-shadow:0 0 0 3px rgba(78,143,88,.16)}
+.phone:focus-within{border-color:var(--red);box-shadow:0 0 0 3px rgba(201,69,61,.16)}
 .phone__code{
   display:flex;align-items:center;gap:6px;
   padding:0 16px;background:#fff;border-right:1px solid #D9DFD6;
@@ -289,7 +301,7 @@ button{font-family:inherit}
 }
 .thanks__check{
   width:96px;height:96px;border-radius:50%;margin:0 auto 22px;
-  background:linear-gradient(180deg,#5F9E68 0%,#43804D 100%);
+  background:linear-gradient(180deg,var(--red) 0%,var(--red-dark) 100%);
   display:flex;align-items:center;justify-content:center;
   color:#fff;font-size:46px;line-height:1;
 }
@@ -299,12 +311,12 @@ button{font-family:inherit}
   text-transform:uppercase;margin:0 0 16px;
 }
 .thanks__text{margin:0 auto 26px;color:var(--ink-body);max-width:26em}
-.thanks__arrows{font-size:30px;letter-spacing:.28em;color:var(--green);margin-bottom:18px}
+.thanks__arrows{font-size:30px;letter-spacing:.28em;color:var(--red);margin-bottom:18px}
 .thanks__note{margin:18px auto 0;color:var(--ink-mute);font-size:15px;max-width:32em}
 
 /* ---------- desktop ---------- */
 @media (min-width:760px){
   body{font-size:18px}
   .section,.hero,.footer{padding:60px 24px}
-  .hero__photo img{max-height:none}
+  .hero__photo img{max-height:420px}
 }
