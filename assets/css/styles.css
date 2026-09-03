@@ -49,7 +49,7 @@ button{font-family:inherit}
 .hero{
   background:var(--bg-hero);
   max-width:none;
-  padding-top:26px;
+  padding-top:10px;
 }
 .hero > *{max-width:var(--wrap);margin-inline:auto}
 
@@ -75,31 +75,32 @@ button{font-family:inherit}
 .hero__subtitle{
   text-align:center;
   color:var(--ink-mute);
-  font-size:17px;
-  margin:14px auto 0;
-  max-width:24em;
+  font-size:12px;
+  line-height:1.4;
+  margin:6px auto 0;
+  max-width:none;
 }
 
 /* ---------- instagram badge ---------- */
 .ig-badge{
-  display:flex;align-items:center;gap:12px;
-  width:max-content;margin:0 auto 22px;
+  display:flex;align-items:center;gap:8px;
+  width:max-content;margin:0 auto 8px;
   background:var(--card);
   border-radius:var(--radius-pill);
-  padding:7px 22px 7px 7px;
+  padding:4px 14px 4px 4px;
   text-decoration:none;
   box-shadow:var(--shadow);
 }
 .ig-badge__img{
-  width:44px;height:44px;border-radius:50%;object-fit:cover;
+  width:26px;height:26px;border-radius:50%;object-fit:cover;
   background:#DDE6D8;
-  box-shadow:0 0 0 2px #fff,0 0 0 4px #C9438E;
+  box-shadow:0 0 0 2px #fff,0 0 0 3px #C9438E;
 }
-.ig-badge__name{font-weight:600;color:var(--ink);font-size:17px}
+.ig-badge__name{font-weight:600;color:var(--ink);font-size:13px}
 
 /* ---------- hero photo ---------- */
-.hero__photo{margin-top:14px}
-.hero__photo img{margin-inline:auto;max-height:34vh;max-width:64%;object-fit:contain}
+.hero__photo{margin-top:6px}
+.hero__photo img{margin-inline:auto;max-height:44vh;max-width:83%;object-fit:contain}
 .hero__photo + .cta-block{margin-top:0}
 
 /* ---------- CTA bloki ---------- */
@@ -111,10 +112,10 @@ button{font-family:inherit}
   color:#fff;
   text-decoration:none;
   text-align:center;
-  font-weight:700;font-size:19px;
-  letter-spacing:.04em;
+  font-weight:700;font-size:17px;
+  letter-spacing:.03em;
   text-transform:uppercase;
-  padding:21px 20px;
+  padding:16px 20px;
   transition:transform .12s ease,filter .12s ease;
 }
 .btn:active{transform:scale(.985)}
@@ -133,15 +134,15 @@ button{font-family:inherit}
 .btn:hover{filter:brightness(1.04)}
 
 .timer{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  margin-top:16px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:8px;
   font-family:'Anton',Impact,sans-serif;
-  font-size:32px;letter-spacing:.02em;
+  font-size:24px;letter-spacing:.02em;
   color:var(--red);
   font-variant-numeric:tabular-nums;
 }
 .timer.is-done{color:var(--ink-mute)}
-.cta-note{margin:6px 0 0;color:var(--ink-mute);font-size:15px}
+.cta-note{margin:4px 0 0;color:var(--ink-mute);font-size:13px}
 
 /* ---------- benefits ---------- */
 .benefits{display:grid;gap:18px}
