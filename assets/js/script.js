@@ -31,14 +31,14 @@ const CONFIG = {
   /* ---- 3-bo'lim: natijalar (testimonial skrinshotlar, gorizontal scroll) ---- */
   resultsTitle: "O'quvchilar <em>natijasi</em>",
   results: [
-    { img: "/assets/img/testimonial-1.jpg" },
-    { img: "/assets/img/testimonial-2.jpg" },
-    { img: "/assets/img/testimonial-3.jpg" },
-    { img: "/assets/img/testimonial-4.jpg" },
-    { img: "/assets/img/testimonial-5.jpg" },
-    { img: "/assets/img/testimonial-6.jpg" },
-    { img: "/assets/img/testimonial-7.jpg" },
-    { img: "/assets/img/testimonial-8.jpg" }
+    { img: "/assets/img/testimonial-1.webp" },
+    { img: "/assets/img/testimonial-2.webp" },
+    { img: "/assets/img/testimonial-3.webp" },
+    { img: "/assets/img/testimonial-4.webp" },
+    { img: "/assets/img/testimonial-5.webp" },
+    { img: "/assets/img/testimonial-6.webp" },
+    { img: "/assets/img/testimonial-7.webp" },
+    { img: "/assets/img/testimonial-8.webp" }
   ],
 
   /* ---- 4-bo'lim: ekspert ---- */
@@ -53,10 +53,10 @@ const CONFIG = {
   /* ---- 5-bo'lim: mehmon ekspertlar ---- */
   guestsTitle: "Kursda <em>mehmon ekspertlar</em> ishtirok etadi",
   guests: [
-    { img: "/assets/img/guest-1.jpg", name: "Komron Yuldoshev", role: "Bozordagi eng top prodyuserlardan biri" },
-    { img: "/assets/img/guest-2.jpg", name: "Doniyor Abdug'aniyev", role: "1000ga yaqin shogird chiqargan mobilograf va shaxsiy brend mutaxassisi" },
-    { img: "/assets/img/guest-3.jpg", name: "Isroil Abdullayev", role: "Sun'iy intellekt bo'yicha bozordagi eng top mutaxassislardan biri va mln$ lik AI startap asoschisi" },
-    { img: "/assets/img/guest-4.jpg", name: "Islomxo'ja Madaminov", role: "O'zbekistondagi eng kuchli xotira egalaridan biri" }
+    { img: "/assets/img/guest-1.webp", name: "Komron Yuldoshev", role: "Bozordagi eng top prodyuserlardan biri" },
+    { img: "/assets/img/guest-2.webp", name: "Doniyor Abdug'aniyev", role: "1000ga yaqin shogird chiqargan mobilograf va shaxsiy brend mutaxassisi" },
+    { img: "/assets/img/guest-3.webp", name: "Isroil Abdullayev", role: "Sun'iy intellekt bo'yicha bozordagi eng top mutaxassislardan biri va mln$ lik AI startap asoschisi" },
+    { img: "/assets/img/guest-4.webp", name: "Islomxo'ja Madaminov", role: "O'zbekistondagi eng kuchli xotira egalaridan biri" }
   ],
 
   /* ---- Forma ---- */
