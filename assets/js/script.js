@@ -69,7 +69,8 @@ const CONFIG = {
 
   /* ---- Texnik ---- */
   thanksUrl: "/rahmat.html",
-  metaPixelId: ""   // Pixel ID ni shu yerga yozsangiz avtomatik ulanadi
+  metaPixelId: "4437457179825041",     // Meta Pixel ID
+  metaConversionEvent: "CompleteRegistration"  // Forma yuborilganda otiladigan asosiy event (Lead emas!)
 };
 
 /* ============================================================
@@ -273,32 +274,63 @@ submitBtn.addEventListener("click", async () => {
   submitBtn.disabled = true;
   submitBtn.textContent = "Yuborilmoqda...";
 
-  const payload = {
+  const phone   = "+998" + digits;
+  const eventId = makeEventId();
+
+  const leadPayload = {
     name,
-    phone: "+998" + digits,
+    phone,
     source: location.pathname + location.search,
     ref: document.referrer || "",
     ua: navigator.userAgent
   };
 
-  try {
-    await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-  } catch (e) {
-    console.warn("Lead yuborishda xatolik:", e);
-  }
+  // Sheets va CAPI parallel yuboriladi — biri ikkinchisini kutmaydi
+  const sheetsPromise = fetch("/api/lead", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(leadPayload)
+  }).catch(e => console.warn("Sheets yuborishda xatolik:", e));
 
-  track("Lead");
+  const capiPromise = fetch("/api/capi", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      event_id: eventId,
+      event_name: CONFIG.metaConversionEvent,
+      phone,
+      event_source_url: location.href,
+      fbp: getCookie("_fbp"),
+      fbc: getCookie("_fbc")
+    })
+  }).catch(e => console.warn("CAPI yuborishda xatolik:", e));
+
+  // Brauzer pikseli — CAPI bilan bir xil event_id, Facebook dublikatni o'zi bir joyga jamlaydi
+  track(CONFIG.metaConversionEvent, eventId);
+
+  try { await Promise.race([Promise.all([sheetsPromise, capiPromise]), sleep(1500)]); } catch (e) {}
+
   try { sessionStorage.setItem("leadName", name); } catch (e) {}
   location.href = CONFIG.thanksUrl;
 });
 
-/* ---------- 9. Meta Pixel (ixtiyoriy) ---------- */
-function track(event) {
-  if (window.fbq) window.fbq("track", event);
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+/* ---------- 9. Meta Pixel + CAPI yordamchilari ---------- */
+function makeEventId() {
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  return "ev_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
+}
+
+function getCookie(name) {
+  const m = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+  return m ? decodeURIComponent(m[1]) : "";
+}
+
+function track(event, eventId) {
+  if (!window.fbq) return;
+  if (eventId) fbq("track", event, {}, { eventID: eventId });
+  else fbq("track", event);
 }
 
 if (CONFIG.metaPixelId) {
