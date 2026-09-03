@@ -99,7 +99,7 @@ button{font-family:inherit}
 
 /* ---------- hero photo ---------- */
 .hero__photo{margin-top:14px}
-.hero__photo img{margin-inline:auto;max-height:42vh;max-width:78%;object-fit:contain}
+.hero__photo img{margin-inline:auto;max-height:34vh;max-width:64%;object-fit:contain}
 .hero__photo + .cta-block{margin-top:0}
 
 /* ---------- CTA bloki ---------- */
@@ -239,29 +239,41 @@ button{font-family:inherit}
 .footer__legal{margin:0 0 10px;color:var(--ink-mute);font-size:14px}
 .footer__disclaimer{margin:0;color:var(--ink-mute);font-size:13px;line-height:1.5}
 
-/* ---------- modal ---------- */
+/* ---------- modal (to'liq ekran) ---------- */
 .modal{position:fixed;inset:0;z-index:80;display:none}
 .modal.is-open{display:block}
-.modal__overlay{position:absolute;inset:0;background:rgba(10,20,14,.55)}
-.modal__sheet{
-  position:absolute;inset:auto 0 0 0;
-  max-height:92vh;overflow-y:auto;
+.modal__panel{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;
   background:#fff;
-  border-radius:22px 22px 0 0;
-  padding:52px 22px 34px;
-  max-width:var(--wrap);margin-inline:auto;
-  animation:sheet-up .22s ease-out;
+  animation:panel-in .18s ease-out;
 }
-@keyframes sheet-up{from{transform:translateY(18px);opacity:.6}to{transform:none;opacity:1}}
-@media (prefers-reduced-motion:reduce){.modal__sheet{animation:none}}
+@keyframes panel-in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.modal__panel{animation:none}}
+
+.modal__topbar{
+  flex:0 0 auto;
+  height:64px;
+  background:#101012;
+  display:flex;align-items:center;justify-content:flex-end;
+  padding:0 14px;
+}
 .modal__close{
-  position:absolute;top:12px;right:12px;
   width:40px;height:40px;border:0;border-radius:50%;
-  background:transparent;color:var(--ink);font-size:22px;cursor:pointer;
+  background:transparent;color:#fff;font-size:22px;line-height:1;cursor:pointer;
+}
+
+.modal__body{
+  flex:1 1 auto;
+  overflow-y:auto;
+  width:100%;
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding:44px 22px 34px;
 }
 .modal__title{
   font-size:26px;font-weight:700;color:#101a13;
-  text-align:center;margin:0 0 26px;line-height:1.25;
+  text-align:left;margin:0 0 30px;line-height:1.25;
 }
 .modal__submit{margin-top:24px}
 
@@ -301,7 +313,7 @@ button{font-family:inherit}
 }
 .thanks__check{
   width:96px;height:96px;border-radius:50%;margin:0 auto 22px;
-  background:linear-gradient(180deg,var(--red) 0%,var(--red-dark) 100%);
+  background:linear-gradient(180deg,var(--green) 0%,var(--green-dark) 100%);
   display:flex;align-items:center;justify-content:center;
   color:#fff;font-size:46px;line-height:1;
 }
@@ -311,7 +323,7 @@ button{font-family:inherit}
   text-transform:uppercase;margin:0 0 16px;
 }
 .thanks__text{margin:0 auto 26px;color:var(--ink-body);max-width:26em}
-.thanks__arrows{font-size:30px;letter-spacing:.28em;color:var(--red);margin-bottom:18px}
+.thanks__arrows{font-size:30px;letter-spacing:.28em;color:var(--green);margin-bottom:18px}
 .thanks__note{margin:18px auto 0;color:var(--ink-mute);font-size:15px;max-width:32em}
 
 /* ---------- desktop ---------- */

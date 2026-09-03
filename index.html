@@ -10,6 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="/assets/img/hero.png">
 <link rel="icon" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,28 +80,32 @@
 
 <!-- ============ MODAL FORMA ============ -->
 <div class="modal" id="modal" aria-hidden="true">
-  <div class="modal__overlay" data-close></div>
-  <div class="modal__sheet" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="modal__close" type="button" data-close aria-label="Yopish">&#10005;</button>
-    <h2 class="modal__title" id="modal-title" data-cfg="formTitle"></h2>
-
-    <div class="field">
-      <label class="field__label" for="lead-name">Ismingiz</label>
-      <input class="field__input" id="lead-name" type="text" placeholder="Ismingiz" autocomplete="given-name" maxlength="60">
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal__topbar">
+      <button class="modal__close" type="button" data-close aria-label="Yopish">&#10005;</button>
     </div>
 
-    <div class="field">
-      <label class="field__label" for="lead-phone">Telefon raqamingiz</label>
-      <div class="phone">
-        <span class="phone__code">🇺🇿 +998</span>
-        <input class="field__input phone__input" id="lead-phone" type="tel" inputmode="numeric"
-               placeholder="XX XXX-XX-XX" autocomplete="tel-national" maxlength="13">
+    <div class="modal__body">
+      <h2 class="modal__title" id="modal-title" data-cfg="formTitle"></h2>
+
+      <div class="field">
+        <label class="field__label" for="lead-name">Ismingiz</label>
+        <input class="field__input" id="lead-name" type="text" placeholder="Ismingiz" autocomplete="given-name" maxlength="60">
       </div>
+
+      <div class="field">
+        <label class="field__label" for="lead-phone">Telefon raqamingiz</label>
+        <div class="phone">
+          <span class="phone__code">🇺🇿 +998</span>
+          <input class="field__input phone__input" id="lead-phone" type="tel" inputmode="numeric"
+                 placeholder="XX XXX-XX-XX" autocomplete="tel-national" maxlength="13">
+        </div>
+      </div>
+
+      <p class="field__error" id="lead-error" hidden></p>
+
+      <button class="btn btn--red modal__submit" id="lead-submit" type="button" data-cfg="formButton"></button>
     </div>
-
-    <p class="field__error" id="lead-error" hidden></p>
-
-    <button class="btn btn--red modal__submit" id="lead-submit" type="button" data-cfg="formButton"></button>
   </div>
 </div>
 
