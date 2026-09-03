@@ -11,9 +11,9 @@ const CONFIG = {
   heroTitle:    "3 oyda yangi kasb o'rganib, oyiga $1000+ topish mumkinmi?",
   heroSubtitle: "SMM'ni 0 dan o'rganib, ilk mijozlarni topish va barqaror daromadga chiqishning aniq yo'lini bilib oling",
 
-  /* ---- CTA tugmalar ---- */
+  /* ---- CTA tugmalar (hammasi bir xil matn) ---- */
   ctaGreen:     "Bepul sovg'ani olish",
-  ctaRed:       "Daromadga chiqmoqchiman",
+  ctaRed:       "Bepul sovg'ani olish",
   ctaNote:      "kursga oldindan ro'yxatdan o'ting 👆",
 
   /* ---- Taymer ---- */
@@ -91,6 +91,14 @@ $$(".cta-block").forEach(block => {
   const red   = block.dataset.cta === "red";
   const label = red ? CONFIG.ctaRed : CONFIG.ctaGreen;
 
+  if (block.dataset.arrows) {
+    const arrows = document.createElement("div");
+    arrows.className = "cta-arrows";
+    arrows.setAttribute("aria-hidden", "true");
+    arrows.innerHTML = "<span>↓</span>".repeat(5);
+    block.appendChild(arrows);
+  }
+
   const btn = document.createElement("button");
   btn.type = "button";
   btn.className = "btn " + (red ? "btn--red" : "btn--green");
@@ -144,14 +152,41 @@ $("#benefits").innerHTML = CONFIG.benefits.map(b => `
     <p class="benefit__text">${b.text}</p>
   </div>`).join("");
 
+/* ---------- 4a. Natijalar: tugmali carousel ---------- */
 if (CONFIG.results.length) {
-  $("#results").innerHTML = CONFIG.results.map(r => `
-    <div class="result">
-      <img src="${r.img}" alt="O'quvchi fikri" loading="lazy">
-    </div>`).join("");
+  let tcIndex = 0;
+  const tcImages = CONFIG.results.map(r => r.img);
+  const tcImg = $("#tc-img");
+  const tcDots = $("#tc-dots");
+
+  tcDots.innerHTML = tcImages.map((_, i) =>
+    `<span class="tc-dot${i === 0 ? " is-active" : ""}"></span>`).join("");
+  const dotEls = $$(".tc-dot", tcDots);
+
+  function renderTC() {
+    tcImg.style.opacity = "0";
+    setTimeout(() => {
+      tcImg.src = tcImages[tcIndex];
+      tcImg.style.opacity = "1";
+    }, 150);
+    dotEls.forEach((d, i) => d.classList.toggle("is-active", i === tcIndex));
+  }
+
+  tcImg.src = tcImages[0];
+
+  $("#tc-prev").addEventListener("click", () => {
+    tcIndex = (tcIndex - 1 + tcImages.length) % tcImages.length;
+    renderTC();
+  });
+  $("#tc-next").addEventListener("click", () => {
+    tcIndex = (tcIndex + 1) % tcImages.length;
+    renderTC();
+  });
 } else {
   $("#results-section").hidden = true;
 }
+
+/* ---------- 4b. Qolgan ro'yxatlarni chizish ---------- */
 
 $("#credentials").innerHTML = CONFIG.credentials.map(c => `
   <li><span class="ico">${c.icon}</span><span>${c.text}</span></li>`).join("");

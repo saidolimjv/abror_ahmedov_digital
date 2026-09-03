@@ -34,7 +34,7 @@
     <img src="/assets/img/hero.webp" alt="Abror Ahmedov — digital ekspert" width="640" height="960" loading="eager" fetchpriority="high">
   </div>
 
-  <div class="cta-block" data-cta="green"></div>
+  <div class="cta-block" data-cta="green" data-arrows="1"></div>
 </section>
 
 <!-- ============ 2. NIMA OLASIZ ============ -->
@@ -47,7 +47,14 @@
 <!-- ============ 3. NATIJALAR ============ -->
 <section class="section" id="results-section">
   <h2 class="section__title" data-cfg="resultsTitle"></h2>
-  <div class="results" id="results"></div>
+  <div class="tc" id="tc">
+    <div class="tc-stage">
+      <img id="tc-img" src="" alt="O'quvchi fikri">
+    </div>
+    <button class="tc-btn tc-btn--prev" id="tc-prev" type="button" aria-label="Oldingi">&#8249;</button>
+    <button class="tc-btn tc-btn--next" id="tc-next" type="button" aria-label="Keyingi">&#8250;</button>
+  </div>
+  <div class="tc-dots" id="tc-dots"></div>
   <div class="cta-block" data-cta="red"></div>
 </section>
 
