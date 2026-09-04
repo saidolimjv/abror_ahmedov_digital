@@ -67,9 +67,12 @@ const CONFIG = {
   phones: ["+998 78-113-70-44"],
   legal:  "ONLINE EDU NTM · Manzil: Chinabad, 88E",
 
-  /* ---- Texnik ---- */
+  /* ---- Texnik ----
+     Meta Pixel bazaviy kodi (fbq bootstrap + init + PageView) CONFIG'da
+     EMAS — u index.html va rahmat.html ning <head> qismida, Meta bergan
+     xom kod bilan aynan turibdi (Pixel ID: 4437457179825041). Agar Pixel ID
+     o'zgarsa, uni ikkala HTML faylda ham qo'lda almashtirish kerak.       */
   thanksUrl: "/rahmat.html",
-  metaPixelId: "4437457179825041",     // Meta Pixel ID
   metaConversionEvent: "CompleteRegistration"  // Forma yuborilganda otiladigan asosiy event (Lead emas!)
 };
 
@@ -316,7 +319,13 @@ submitBtn.addEventListener("click", async () => {
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-/* ---------- 9. Meta Pixel + CAPI yordamchilari ---------- */
+/* ---------- 9. Meta Pixel + CAPI yordamchilari ----------
+   Diqqat: pixel bazaviy kodi (fbq bootstrap + init + PageView)
+   endi index.html va rahmat.html ning <head> qismida, Meta'ning
+   o'zi bergan xom kod bilan aynan turibdi. Bu yerda uni QAYTA
+   ishga tushirmaymiz — aks holda PageView ikki marta hisoblanadi.
+   Shu sababli bu yerda faqat window.fbq allaqachon borligidan
+   foydalanadigan yordamchi funksiyalar qoladi.               */
 function makeEventId() {
   if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
   return "ev_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
@@ -331,14 +340,4 @@ function track(event, eventId) {
   if (!window.fbq) return;
   if (eventId) fbq("track", event, {}, { eventID: eventId });
   else fbq("track", event);
-}
-
-if (CONFIG.metaPixelId) {
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', CONFIG.metaPixelId);
-  fbq('track', 'PageView');
 }
