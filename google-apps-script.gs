@@ -14,7 +14,7 @@
  *     maxfiy so'zni esa LEAD_SECRET ga yozing.
  */
 
-var SECRET = "SHU_YERGA_MAXFIY_SOZ";   // <-- o'zgartiring
+var SECRET = "V9efzXtJEIAF9qCY1hoE1ZdBC_uhPMJn";   // <-- o'zgartiring
 
 function doPost(e) {
   try {
